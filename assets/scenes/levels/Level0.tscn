@@ -2,16 +2,16 @@
 
 [ext_resource path="res://assets/scenes/objects/Player.tscn" type="PackedScene" id=3]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 332, 10 )
-
 [node name="Level0" type="Node2D"]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Spirit" parent="." instance=ExtResource( 2 )]
+visible = false
+position = Vector2( 233, 155 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 325, 355 )
-shape = SubResource( 1 )
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 211, 351 )
+JUMP_HEIGHT = -600
 
-[node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 69, 301 )
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
