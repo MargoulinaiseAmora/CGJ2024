@@ -10,3 +10,4 @@ func _process(delta):
 		meditating = !meditating
 		if meditating:
 			$Spirit.position = $Body.position
+			$Spirit.velocity = Vector2()
