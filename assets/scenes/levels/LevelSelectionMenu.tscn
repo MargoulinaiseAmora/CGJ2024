@@ -1,7 +1,6 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/scripts/LevelSelectionManager.cs" type="Script" id=1]
-[ext_resource path="res://assets/scenes/levels/Level0.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/gfx/button_main_pressed.tres" type="StyleBox" id=3]
 [ext_resource path="res://assets/fonts/button_font.tres" type="DynamicFont" id=4]
 [ext_resource path="res://assets/gfx/button_main_normal.tres" type="StyleBox" id=5]
@@ -14,7 +13,6 @@ bg_color = Color( 0.0745098, 0.0156863, 0.105882, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
-scenes = [ ExtResource( 2 ) ]
 
 [node name="Background" type="Panel" parent="."]
 anchor_right = 1.0

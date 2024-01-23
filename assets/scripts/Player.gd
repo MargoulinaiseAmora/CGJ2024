@@ -26,7 +26,7 @@ func _physics_process(delta):
 		$AnimationTree.get("parameters/playback").travel("Walk")
 	else:
 		motion.x = 0
-		$AnimationTree.get("parameters/playback").travel("Idle")
+		#$AnimationTree.get("parameters/playback").travel("Idle")
 
 		
 	motion = move_and_slide(motion, UP, false)
