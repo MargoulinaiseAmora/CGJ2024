@@ -79,6 +79,12 @@ ui_down={
  ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="walls"
+2d_physics/layer_2="body"
+2d_physics/layer_3="spirit"
+
 [mono]
 
 project/assembly_name="CGJ2024"
