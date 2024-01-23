@@ -8,6 +8,12 @@ bg_color = Color( 0, 0, 0, 0.6 )
 
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.145098, 0.0470588, 0.215686, 1 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_size = 350
 
 [node name="SettingsMenu" type="Control"]
 anchor_right = 1.0
@@ -15,6 +21,7 @@ anchor_bottom = 1.0
 script = ExtResource( 2 )
 
 [node name="Background" type="Panel" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_styles/panel = SubResource( 1 )
@@ -140,8 +147,10 @@ value = 1.0
 [node name="CloseButton" type="Button" parent="Menu"]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -48.0
-margin_bottom = 48.0
+margin_left = -42.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = 42.0
 icon = ExtResource( 1 )
 flat = true
 expand_icon = true

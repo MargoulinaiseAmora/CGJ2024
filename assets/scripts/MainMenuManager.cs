@@ -15,7 +15,6 @@ public class MainMenuManager : Control
 			var levelInstance = launchLevel.Instance();
 			GetTree().Root.AddChild(levelInstance);
 			this.QueueFree();
-
 		}
 	}
 
