@@ -19,4 +19,9 @@ public class MainMenuManager : Control
 		GetTree().Quit();
 	}
 
+	private void FullscreenPressed(bool button_pressed)
+	{
+		OS.WindowFullscreen = button_pressed;
+	}
+
 }
