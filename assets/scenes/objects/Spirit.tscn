@@ -12,15 +12,15 @@ animations = [ {
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 24.0
-height = 2.0
+radius = 121.0
+height = 6.0
 
 [node name="Spirit" type="KinematicBody2D"]
+scale = Vector2( 0.2, 0.2 )
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0.9, 0 )
-scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

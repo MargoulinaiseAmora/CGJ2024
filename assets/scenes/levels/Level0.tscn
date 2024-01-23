@@ -13,7 +13,8 @@ visible = false
 position = Vector2( 233, 155 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 137, 142 )
+position = Vector2( 69, 301 )
+JUMP_HEIGHT = -600
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 

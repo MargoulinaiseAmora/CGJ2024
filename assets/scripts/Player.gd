@@ -1,29 +1,40 @@
 extends KinematicBody2D
 
-export (int) var run_speed = 300
-export (int) var jump_speed = -400
-export (int) var gravity = 1200
+const UP = Vector2(0, -1)
+export var GRAVITY = 20
+export var SPEED = 300
+export var JUMP_HEIGHT = -500
+var jumped = false
 
-var velocity = Vector2()
-var jumping = false
+var motion = Vector2()
 
-func get_input():
-	velocity.x = 0
-	var right = Input.is_action_pressed('ui_right')
-	var left = Input.is_action_pressed('ui_left')
-	var jump = Input.is_action_just_pressed('ui_select')
-
-	if jump and is_on_floor():
-		jumping = true
-		velocity.y = jump_speed
-	if right:
-		velocity.x += run_speed
-	if left:
-		velocity.x -= run_speed
+var hit_the_ground = false
 
 func _physics_process(delta):
-	get_input()
-	velocity.y += gravity * delta
-	if jumping and is_on_floor():
-		jumping = false
-	velocity = move_and_slide(velocity, Vector2(0, -1))
+	motion.y += GRAVITY
+	
+	if Input.is_action_pressed("ui_left"):
+		motion.x = -SPEED
+	elif Input.is_action_pressed("ui_right"):
+		motion.x = SPEED
+	else:
+		motion.x = 0
+		
+	motion = move_and_slide(motion, UP, false)
+	
+	if is_on_floor():
+		$AnimatedSprite.scale = lerp($AnimatedSprite.scale, Vector2(1,1), 0.25)
+		if jumped:
+			$AnimatedSprite.scale = Vector2(1.35, 0.65)
+			jumped = false
+		motion.y = 0	
+		if Input.is_action_just_pressed("ui_up") || Input.is_action_just_pressed("ui_select"):
+			jumped = true
+			motion.y = JUMP_HEIGHT
+	else:
+		if jumped:
+			$AnimatedSprite.scale = lerp($AnimatedSprite.scale, Vector2(0.75, 1.25), 0.25)
+		motion.y += GRAVITY
+
+	
+	

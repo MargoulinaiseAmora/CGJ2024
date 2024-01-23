@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
-var speed = 400
-var velocity = Vector2()
+export var speed = 400
+export var velocity = Vector2()
 
 func get_input():
 	# Detect up/down/left/right keystate and only move when pressed.
@@ -12,7 +12,7 @@ func get_input():
 		velocity.x -= 1
 	if Input.is_action_pressed('ui_down'):
 		velocity.y += 1
-	if Input.is_action_pressed('ui_up'):
+	if Input.is_action_pressed('ui_up') || Input.is_action_pressed('ui_select'):
 		velocity.y -= 1
 	velocity = velocity.normalized() * speed
 
