@@ -5,6 +5,9 @@ public class MainMenuManager : Control
 	[Export]
 	PackedScene launchLevel;
 
+	[Export]
+	PackedScene settingsMenu;
+
 	private void PlayPressed()
 	{
 		if (launchLevel != null)
@@ -22,6 +25,12 @@ public class MainMenuManager : Control
 	private void FullscreenPressed(bool button_pressed)
 	{
 		OS.WindowFullscreen = button_pressed;
+	}
+
+	private void SettingsPressed()
+	{
+		var settingsInstance = settingsMenu.Instance();
+		GetTree().Root.AddChild(settingsInstance);
 	}
 
 }
