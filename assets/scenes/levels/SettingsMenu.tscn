@@ -110,6 +110,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 4
 max_value = 1.0
 step = 0.1
+value = 1.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Menu/VBoxContainer"]
 margin_top = 82.0
@@ -134,6 +135,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 4
 max_value = 1.0
 step = 0.1
+value = 1.0
 
 [node name="CloseButton" type="Button" parent="Menu"]
 anchor_left = 1.0
@@ -144,6 +146,20 @@ icon = ExtResource( 1 )
 flat = true
 expand_icon = true
 
+[node name="Label" type="Label" parent="Menu"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -41.0
+margin_top = 10.0
+margin_right = 41.0
+margin_bottom = 24.0
+rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 41, 0 )
+text = "PARAMETRES"
+
+[connection signal="pressed" from="Menu/VBoxContainer/HBoxContainer2/Button2" to="." method="ChangeFramerate" binds= [ 30 ]]
+[connection signal="pressed" from="Menu/VBoxContainer/HBoxContainer2/Button" to="." method="ChangeFramerate" binds= [ 60 ]]
+[connection signal="pressed" from="Menu/VBoxContainer/HBoxContainer2/Button3" to="." method="ChangeFramerate" binds= [ 120 ]]
 [connection signal="value_changed" from="Menu/VBoxContainer/HBoxContainer3/HSlider" to="." method="ChangeMusicAudio"]
 [connection signal="value_changed" from="Menu/VBoxContainer/HBoxContainer/HSlider" to="." method="ChangeFXAudio"]
 [connection signal="pressed" from="Menu/CloseButton" to="." method="CloseSettings"]
