@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/scripts/LevelSelectionManager.cs" type="Script" id=1]
+[ext_resource path="res://assets/scenes/levels/Level0.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/gfx/button_main_pressed.tres" type="StyleBox" id=3]
 [ext_resource path="res://assets/fonts/button_font.tres" type="DynamicFont" id=4]
 [ext_resource path="res://assets/gfx/button_main_normal.tres" type="StyleBox" id=5]
@@ -13,6 +14,7 @@ bg_color = Color( 0.0745098, 0.0156863, 0.105882, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
+scenes = [ ExtResource( 2 ) ]
 
 [node name="Background" type="Panel" parent="."]
 anchor_right = 1.0
@@ -43,6 +45,7 @@ size_flags_vertical = 6
 custom_fonts/font = ExtResource( 4 )
 custom_styles/hover = ExtResource( 6 )
 custom_styles/pressed = ExtResource( 3 )
+custom_styles/focus = ExtResource( 6 )
 custom_styles/normal = ExtResource( 5 )
 text = "Level 0"
 
@@ -58,6 +61,7 @@ size_flags_vertical = 6
 custom_fonts/font = ExtResource( 4 )
 custom_styles/hover = ExtResource( 6 )
 custom_styles/pressed = ExtResource( 3 )
+custom_styles/focus = ExtResource( 6 )
 custom_styles/normal = ExtResource( 5 )
 text = "Level 1"
 
@@ -73,6 +77,7 @@ size_flags_vertical = 6
 custom_fonts/font = ExtResource( 4 )
 custom_styles/hover = ExtResource( 6 )
 custom_styles/pressed = ExtResource( 3 )
+custom_styles/focus = ExtResource( 6 )
 custom_styles/normal = ExtResource( 5 )
 text = "Level 2"
 
@@ -88,6 +93,7 @@ size_flags_vertical = 6
 custom_fonts/font = ExtResource( 4 )
 custom_styles/hover = ExtResource( 6 )
 custom_styles/pressed = ExtResource( 3 )
+custom_styles/focus = ExtResource( 6 )
 custom_styles/normal = ExtResource( 5 )
 text = "Level 3"
 
@@ -103,6 +109,7 @@ size_flags_vertical = 6
 custom_fonts/font = ExtResource( 4 )
 custom_styles/hover = ExtResource( 6 )
 custom_styles/pressed = ExtResource( 3 )
+custom_styles/focus = ExtResource( 6 )
 custom_styles/normal = ExtResource( 5 )
 text = "Level 4"
 
@@ -118,6 +125,7 @@ size_flags_vertical = 6
 custom_fonts/font = ExtResource( 4 )
 custom_styles/hover = ExtResource( 6 )
 custom_styles/pressed = ExtResource( 3 )
+custom_styles/focus = ExtResource( 6 )
 custom_styles/normal = ExtResource( 5 )
 text = "Level 5"
 
@@ -133,6 +141,7 @@ size_flags_vertical = 6
 custom_fonts/font = ExtResource( 4 )
 custom_styles/hover = ExtResource( 6 )
 custom_styles/pressed = ExtResource( 3 )
+custom_styles/focus = ExtResource( 6 )
 custom_styles/normal = ExtResource( 5 )
 text = "Level 6"
 
@@ -148,6 +157,7 @@ size_flags_vertical = 6
 custom_fonts/font = ExtResource( 4 )
 custom_styles/hover = ExtResource( 6 )
 custom_styles/pressed = ExtResource( 3 )
+custom_styles/focus = ExtResource( 6 )
 custom_styles/normal = ExtResource( 5 )
 text = "Level 7"
 
@@ -163,10 +173,11 @@ size_flags_vertical = 6
 custom_fonts/font = ExtResource( 4 )
 custom_styles/hover = ExtResource( 6 )
 custom_styles/pressed = ExtResource( 3 )
+custom_styles/focus = ExtResource( 6 )
 custom_styles/normal = ExtResource( 5 )
 text = "Level 8"
 
-[node name="Level9Button2" type="Button" parent="GridContainer"]
+[node name="Level9Button" type="Button" parent="GridContainer"]
 margin_left = 197.0
 margin_top = 290.0
 margin_right = 327.0
@@ -178,5 +189,20 @@ size_flags_vertical = 6
 custom_fonts/font = ExtResource( 4 )
 custom_styles/hover = ExtResource( 6 )
 custom_styles/pressed = ExtResource( 3 )
+custom_styles/focus = ExtResource( 6 )
 custom_styles/normal = ExtResource( 5 )
 text = "Level 9"
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -93.5
+margin_top = 50.0
+margin_right = 93.5
+margin_bottom = 84.0
+rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 93, 0 )
+custom_fonts/font = ExtResource( 4 )
+text = "Liste des niveaux"
+
+[connection signal="pressed" from="GridContainer/Level0Button" to="." method="LaunchLevel" binds= [ 0 ]]
