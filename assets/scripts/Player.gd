@@ -10,22 +10,30 @@ var motion = Vector2()
 
 var hit_the_ground = false
 
+func _ready():
+	$AnimationTree.get("parameters/playback").start("Idle")
+
 func _physics_process(delta):
 	motion.y += GRAVITY
 	
 	if Input.is_action_pressed("ui_left"):
 		motion.x = -SPEED
+		$AnimatedSprite.flip_h = true;
+		$AnimationTree.get("parameters/playback").travel("Walk")
 	elif Input.is_action_pressed("ui_right"):
 		motion.x = SPEED
+		$AnimatedSprite.flip_h = false;
+		$AnimationTree.get("parameters/playback").travel("Walk")
 	else:
 		motion.x = 0
+		#$AnimationTree.get("parameters/playback").travel("Idle")
+
 		
 	motion = move_and_slide(motion, UP, false)
 	
 	if is_on_floor():
-		$AnimatedSprite.scale = lerp($AnimatedSprite.scale, Vector2(1,1), 0.25)
 		if jumped:
-			$AnimatedSprite.scale = Vector2(1.35, 0.65)
+			$AnimationTree.get("parameters/playback").travel("Land")
 			jumped = false
 		motion.y = 0	
 		if Input.is_action_just_pressed("ui_up") || Input.is_action_just_pressed("ui_select"):
@@ -33,7 +41,8 @@ func _physics_process(delta):
 			motion.y = JUMP_HEIGHT
 	else:
 		if jumped:
-			$AnimatedSprite.scale = lerp($AnimatedSprite.scale, Vector2(0.75, 1.25), 0.25)
+			$AnimationTree.get("parameters/playback").travel("Jump")
+			
 		motion.y += GRAVITY
 
 	

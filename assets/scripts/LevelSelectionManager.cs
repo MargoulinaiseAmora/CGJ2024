@@ -2,18 +2,15 @@ using Godot;
 
 public class LevelSelectionManager : Control
 {
-    [Export]
-    PackedScene[] scenes;
 
     // Called when the node enters the scene tree for the first time.
-    private void _Ready()
+    private void LaunchLevel(int index)
     {
-        
-    }
+        //PackedScene node = GetNode("res://assets/scripts/Game.gd");
+        //node.Set("currentLevelIndex", index);
 
-//  // Called every frame. 'delta' is the elapsed time since the previous frame.
-//  public override void _Process(float delta)
-//  {
-//      
-//  }
+        //var levelInstance = node.Instance();
+        //GetTree().Root.AddChild(levelInstance);
+        //this.QueueFree();
+    }
 }
