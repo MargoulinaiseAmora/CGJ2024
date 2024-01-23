@@ -3,7 +3,7 @@ using System;
 
 public class Player : KinematicBody2D
 {
-	[Export] public int RunSpeed = 100;
+	[Export] public int RunSpeed = 400;
 	[Export] public int JumpSpeed = -400;
 	[Export] public int Gravity = 1200;
 

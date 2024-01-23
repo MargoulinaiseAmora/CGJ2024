@@ -3,71 +3,44 @@ using System;
 
 public class Spirit : KinematicBody2D
 {
-	[Export]
-	public int Speed = 400; // How fast the player will move (pixels/sec).
+	[Export] public int Speed = 500;
+//	[Export] public int JumpSpeed = -400;
+//	[Export] public int Gravity = 0;
 
-	public Vector2 ScreenSize; // Size of the game window.
+	Vector2 velocity = new Vector2();
+	//bool jumping = false;
 
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
+	public void getInput()
 	{
-		ScreenSize = GetViewportRect().Size;    
+		velocity.x = 0;
+		velocity.y = 0;
+		bool right = Input.IsActionPressed("ui_right");
+		bool left = Input.IsActionPressed("ui_left");
+		bool up = Input.IsActionPressed("ui_up");
+		bool down = Input.IsActionPressed("ui_down");
+		bool jump = Input.IsActionPressed("ui_select");
+
+		if (right)
+		{
+			velocity.x += Speed;
+		}
+		if (left)
+		{
+			velocity.x -= Speed;
+		}
+		if (down)
+		{
+			velocity.y += Speed;
+		}
+		if (up || jump)
+		{
+			velocity.y -= Speed;
+		}
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(float delta)
+	public override void _PhysicsProcess(float delta)
 	{
-		var velocity = Vector2.Zero; // The player's movement vector.
-
-		if (Input.IsActionPressed("ui_right"))
-		{
-			velocity.x += 1;
-		}
-
-		if (Input.IsActionPressed("ui_left"))
-		{
-			velocity.x -= 1;
-		}
-
-		if (Input.IsActionPressed("ui_down"))
-		{
-			velocity.y += 1;
-		}
-
-		if (Input.IsActionPressed("ui_up"))
-		{
-			velocity.y -= 1;
-		}
-
-		var animatedSprite = GetNode<AnimatedSprite>("AnimatedSprite");
-
-		if (velocity.Length() > 0)
-		{
-			velocity = velocity.Normalized() * Speed;
-			animatedSprite.Play();
-		}
-		else
-		{
-			animatedSprite.Stop();
-		}
-		
-		Position += velocity * delta;
-		Position = new Vector2(
-			x: Mathf.Clamp(Position.x, 0, ScreenSize.x),
-			y: Mathf.Clamp(Position.y, 0, ScreenSize.y)
-		);
-		
-	//	if (velocity.x != 0)
-	//	{
-	//	    animatedSprite.Animation = "walk";
-	//	    animatedSprite.FlipV = false;
-			// See the note below about boolean assignment.
-	//	    animatedSprite.FlipH = velocity.x < 0;
-	//	}
-	//	else if (velocity.y != 0)
-	//	{
-	//	    animatedSprite.Animation = "up";
-	//	    animatedSprite.FlipV = velocity.y > 0;
-	//	}
+		getInput();
+		velocity = MoveAndSlide(velocity, new Vector2(0, 0));
 	}
 }
