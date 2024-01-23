@@ -39,12 +39,11 @@ _global_script_class_icons={
 [application]
 
 config/name="CGJ2024"
-run/main_scene="res://assets/scenes/levels/Game.tscn"
+run/main_scene="res://assets/scenes/levels/MainMenu.scn"
 config/icon="res://icon.png"
 
-[autoload]
+[display]
 
-SoundEffectManager="*res://assets/scripts/Singleton/SoundEffectManager.gd"
 window/size/width=1032
 window/size/height=613
 window/stretch/mode="2d"

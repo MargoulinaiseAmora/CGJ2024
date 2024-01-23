@@ -183,9 +183,8 @@ scale = Vector2( 0.2, 0.2 )
 script = ExtResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 0.9, 181.368 )
-rotation = 0.135265
-scale = Vector2( 1, 0.953604 )
+position = Vector2( 0.9, 180.585 )
+scale = Vector2( 1, 0.99 )
 frames = SubResource( 1 )
 offset = Vector2( 0, -200 )
 
@@ -204,4 +203,5 @@ anims/Walk = SubResource( 5 )
 tree_root = SubResource( 16 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
+process_mode = 0
 parameters/playback = SubResource( 17 )

@@ -9,7 +9,6 @@ onready var levels: Array = loadNodes(levelPaths)
 
 export var currentLevelIndex = 0
 
-
 func loadNodes(nodePaths: Array) -> Array:
 	var nodes := []
 	for nodePath in nodePaths:
@@ -32,8 +31,6 @@ func resetLevel():
 	player.position = getCurrentLevel().getStartPos()
 	$Camera2D.position.x = 1024 * currentLevelIndex
 
-
-
 func nextLevel():
 	currentLevelIndex = (currentLevelIndex + 1) % levels.size()
 	resetLevel()
@@ -46,11 +43,11 @@ func prevLevel():
 func _ready():
 	
 	var indent = 0
-	$MusicManager.play()
+	
 	for level in levels:
 		level.position.x = indent
 		indent += 1024
-
+	
 	resetLevel()
 
 func _process(delta):

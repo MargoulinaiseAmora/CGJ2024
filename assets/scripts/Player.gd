@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 const UP = Vector2(0, -1)
 export var GRAVITY = 20
-export var SPEED = 300
+export var SPEED = 250
 export var JUMP_HEIGHT = -500
 var jumped = false
 
@@ -26,7 +26,7 @@ func _physics_process(delta):
 		$AnimationTree.get("parameters/playback").travel("Walk")
 	else:
 		motion.x = 0
-		#$AnimationTree.get("parameters/playback").travel("Idle")
+		$AnimationTree.get("parameters/playback").travel("Idle")
 
 		
 	motion = move_and_slide(motion, UP, false)
