@@ -9,8 +9,7 @@
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 5 )
-playerPath = NodePath("Player")
-levelPaths = [ NodePath("Levels/Level1"), NodePath("Levels/Level2"), NodePath("Levels/Level3") ]
+currentLevelIndex = 2
 
 [node name="Levels" type="Node2D" parent="."]
 script = ExtResource( 3 )
@@ -28,6 +27,13 @@ position = Vector2( 711, 121 )
 anchor_mode = 0
 current = true
 
+<<<<<<< Updated upstream
+=======
+[node name="MusicManager" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+autoplay = true
+
+>>>>>>> Stashed changes
 [connection signal="end_touched" from="Levels" to="." method="_on_Levels_end_touched"]
 [connection signal="end_touched" from="Levels/Level1" to="Levels" method="_on_Level1_end_touched"]
 [connection signal="end_touched" from="Levels/Level2" to="Levels" method="_on_Level2_end_touched"]

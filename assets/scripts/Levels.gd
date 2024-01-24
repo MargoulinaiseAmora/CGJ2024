@@ -7,11 +7,11 @@ signal end_touched
 func _ready():
 	pass # Replace with function body.
 
-func _on_Level1_end_touched():
+func _on_Level3_end_touched():
 	emit_signal("end_touched")
 
 func _on_Level2_end_touched():
 	emit_signal("end_touched")
 
-func _on_Level3_end_touched():
+func _on_Level1_end_touched():
 	emit_signal("end_touched")
